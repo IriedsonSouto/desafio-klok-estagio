@@ -14,6 +14,14 @@ public interface SaleService {
 
     public SaleModel getSaleById(String id);
 
+    public SaleModel getSaleByClientId(String id);
+
+    public SaleModel updateSaleById(String id, SaleDto sale);
+
+    public SaleModel updateSaleProductList(String saleId, String productId);
+
+    public SaleModel updateSaleStatus(String id);
+
     public void deleteSaleById(String id);
 
 }

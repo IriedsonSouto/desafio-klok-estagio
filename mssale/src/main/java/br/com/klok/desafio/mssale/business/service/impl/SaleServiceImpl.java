@@ -31,17 +31,38 @@ public class SaleServiceImpl implements SaleService {
 
     @Override
     public SaleModel getSaleById(String uuid) {
+
         var optionalSale = saleRepository.findById(uuid);
 
-        if (optionalSale.isEmpty()) {
-            throw new EntityNotFoundException("Sale: " + uuid + " not found");
-        }
-        return optionalSale.get();
+        return optionalSale.orElseThrow( () -> new EntityNotFoundException("Sale: " + uuid + " not found"));
     }
 
     @Override
-    public void deleteSaleById(String id) {
-        var sale = this.getSaleById(id);
+    public SaleModel getSaleByClientId(String uuid) {
+
+        var optionalSale = saleRepository.findByClientId(uuid);
+
+        return optionalSale.orElseThrow( () -> new EntityNotFoundException("Sale by Client ID: " + uuid + " not found"));
+    }
+
+    @Override
+    public SaleModel updateSaleById(String id, SaleDto sale) {
+        return null;
+    }
+
+    @Override
+    public SaleModel updateSaleProductList(String saleId, String productId) {
+        return null;
+    }
+
+    @Override
+    public SaleModel updateSaleStatus(String id) {
+        return null;
+    }
+
+    @Override
+    public void deleteSaleById(String uuid) {
+        var sale = this.getSaleById(uuid);
         saleRepository.delete(sale);
     }
 

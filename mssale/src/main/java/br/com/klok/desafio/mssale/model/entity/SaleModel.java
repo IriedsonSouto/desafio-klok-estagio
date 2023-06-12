@@ -5,9 +5,9 @@ import com.fasterxml.uuid.Generators;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -15,21 +15,23 @@ import java.util.Date;
 public class SaleModel {
 
     @Id
-    @Column(name = "client_uuid")
+    @Column(name = "sale_uuid")
     private String uuid;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @Column(name = "order_date", nullable = false)
-    private Date date;
+    @Column(name = "sale_create_date", nullable = false)
+    private Date createDate = new Date();
+
+    @Column(name = "sale_paid_date")
+    private Date paidDate;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private SaleStatusEnum status;
 
-    @Column(nullable = false)
-    private String produtcId;
+    @OneToMany(mappedBy = "saleModel", cascade = CascadeType.ALL)
+    private List<SaleProductModel> saleProdutcList;
 
-    @Column(nullable = false)
+    @Column(name ="client_uuid_FK", nullable = false)
     private String clientId;
 
     public SaleModel() {

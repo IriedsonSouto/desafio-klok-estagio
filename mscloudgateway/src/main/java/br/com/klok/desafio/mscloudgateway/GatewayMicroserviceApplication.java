@@ -21,6 +21,7 @@ public class GatewayMicroserviceApplication {
 		return builder.
 					routes()
 						.route( r -> r.path("/clients/**").uri("lb://msclient"))
+						.route( r -> r.path("/sales/**").uri("lb://mssale"))
 					.build();
 	}
 

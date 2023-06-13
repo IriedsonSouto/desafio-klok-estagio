@@ -1,6 +1,6 @@
 package br.com.klok.desafio.msclient.presetation.controller;
 
-import br.com.klok.desafio.msclient.business.ClientService;
+import br.com.klok.desafio.msclient.business.service.ClientService;
 import br.com.klok.desafio.msclient.model.entity.ClientModel;
 import br.com.klok.desafio.msclient.presetation.dto.ClientDto;
 import jakarta.validation.Valid;

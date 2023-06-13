@@ -1,20 +1,23 @@
 package br.com.klok.desafio.msclient.business.service.impl;
 
-import br.com.klok.desafio.msclient.business.ClientService;
+import br.com.klok.desafio.msclient.business.service.ClientService;
+import br.com.klok.desafio.msclient.infra.SendClient;
 import br.com.klok.desafio.msclient.exception.EntityNotFoundException;
 import br.com.klok.desafio.msclient.model.entity.ClientModel;
 import br.com.klok.desafio.msclient.model.repository.ClientRepository;
 import br.com.klok.desafio.msclient.presetation.dto.ClientDto;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
+    private final SendClient queueSendClient;
+
 
     @Override
     public ClientModel saveClient(ClientDto clientDto) {
@@ -30,21 +33,25 @@ public class ClientServiceImpl implements ClientService {
     public ClientModel getClientById(String uuid) {
         var optionalClient = clientRepository.findById(uuid);
 
-        if (optionalClient.isEmpty()) {
-            throw new EntityNotFoundException("Client: " + uuid + " not found");
-        }
-        return optionalClient.get();
+        return optionalClient.orElseThrow( () -> new EntityNotFoundException("Client: " + uuid + " not found"));
     }
 
     @Override
     public ClientModel getClientByEmail(String email) {
         var optionalClient = clientRepository.findByEmail(email);
 
-        if (optionalClient.isEmpty()) {
-            throw new EntityNotFoundException("Client: " + email + "not found");
-        }
-        return optionalClient.get();
+        return optionalClient.orElseThrow( () -> new EntityNotFoundException("Client: " + email + "not found"));
     }
+
+    @Override
+    public void sendClient(ClientModel clientModel) {
+        try {
+            this.queueSendClient.getClientToSend(clientModel);
+        } catch (Exception e) {
+            throw new EntityNotFoundException("Error internal");
+        }
+    }
+
 
     @Override
     public void deleteClientById(String id) {

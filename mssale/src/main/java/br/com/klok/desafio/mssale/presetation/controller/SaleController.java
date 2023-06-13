@@ -18,8 +18,9 @@ public class SaleController {
     private final SaleService saleService;
 
     @PostMapping
-    public ResponseEntity<SaleModel> createSale(@Valid @RequestBody SaleDto saleDto){
-        return ResponseEntity.status(201).body(saleService.saveSale(saleDto));
+    public ResponseEntity createSale(@Valid @RequestBody SaleDto saleDto){
+        saleService.createSale(saleDto);
+        return ResponseEntity.status(200).body("Sucessofully");
     }
 
     @GetMapping

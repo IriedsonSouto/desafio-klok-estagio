@@ -12,19 +12,14 @@ import lombok.Setter;
 @NoArgsConstructor
 public class SaleDto {
 
-    @NotBlank(message ="Client is required")
-    private String clientId;
+    private String uuid;
+    @NotBlank(message ="Email client is required")
+    private String emailClient;
 
-    public SaleDto(SaleModel saleModel) {
-        this.clientId = saleModel.getClientId();
-    }
+    public SaleDto(SaleModel saleModel) {}
 
     public static SaleModel convertToModel(SaleDto saleDto) {
-        var saleModel =  new SaleModel();
-
-        saleModel.setClientId(saleDto.clientId);
-
-        return saleModel;
+        return new SaleModel();
     }
 
 }

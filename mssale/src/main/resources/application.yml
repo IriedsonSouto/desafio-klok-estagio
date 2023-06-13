@@ -2,6 +2,11 @@
 spring:
   application:
     name: mssale
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 server:
   port: 0
@@ -13,3 +18,11 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
 
+mq:
+  queues:
+    client-sale: client-sale
+    sale-client: sale-client
+    payment-sale: payment-sale
+    sale-payment: sale-payment
+    product-sale: product-sale
+    sale-product: sale-product

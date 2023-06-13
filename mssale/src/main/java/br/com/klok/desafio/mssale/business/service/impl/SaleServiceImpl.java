@@ -2,6 +2,8 @@ package br.com.klok.desafio.mssale.business.service.impl;
 
 import br.com.klok.desafio.mssale.business.SaleService;
 import br.com.klok.desafio.mssale.exception.EntityNotFoundException;
+import br.com.klok.desafio.mssale.infra.SendSale;
+import br.com.klok.desafio.mssale.infra.data.ClientData;
 import br.com.klok.desafio.mssale.model.entity.SaleModel;
 import br.com.klok.desafio.mssale.model.enums.SaleStatusEnum;
 import br.com.klok.desafio.mssale.model.repository.SaleRepository;
@@ -16,12 +18,25 @@ import java.util.List;
 public class SaleServiceImpl implements SaleService {
 
     private final SaleRepository saleRepository;
+    private final SendSale sendSale;
 
     @Override
-    public SaleModel saveSale(SaleDto saleDto) {
-        var saleModel = SaleDto.convertToModel(saleDto);
+    public void createSale(SaleDto saleDto) {
+        try {
+            sendSale.getSaleToSend(saleDto);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public SaleModel saveSale(ClientData clientData){
+        var saleModel = new SaleModel();
+
         saleModel.setStatus(SaleStatusEnum.CREATED);
-        return saleRepository.save(saleModel);
+        saleModel.setClientId(clientData.getUuid());
+
+        return this.saleRepository.save(saleModel);
     }
 
     @Override

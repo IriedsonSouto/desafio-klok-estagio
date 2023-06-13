@@ -1,21 +1,13 @@
 package br.com.klok.desafio.msclient.unitary.client;
 
-import br.com.klok.desafio.msclient.business.ClientService;
-import br.com.klok.desafio.msclient.business.service.impl.ClientServiceImpl;
+import br.com.klok.desafio.msclient.business.service.ClientService;
 import br.com.klok.desafio.msclient.model.entity.ClientModel;
 import br.com.klok.desafio.msclient.model.repository.ClientRepository;
 import br.com.klok.desafio.msclient.presetation.dto.ClientDto;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 import org.junit.jupiter.api.*;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
@@ -28,7 +20,7 @@ public class ClientServiceUnitaryTest {
 
     @BeforeAll
     public static void setUp() {
-        clientService = new ClientServiceImpl(clientRepository);
+        //clientService = new ClientServiceImpl(clientRepository);
     }
 
     @Test

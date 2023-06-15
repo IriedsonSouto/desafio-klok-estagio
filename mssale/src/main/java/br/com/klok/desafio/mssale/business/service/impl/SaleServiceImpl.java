@@ -2,15 +2,20 @@ package br.com.klok.desafio.mssale.business.service.impl;
 
 import br.com.klok.desafio.mssale.business.SaleService;
 import br.com.klok.desafio.mssale.exception.EntityNotFoundException;
-import br.com.klok.desafio.mssale.infra.SendSale;
-import br.com.klok.desafio.mssale.infra.data.ClientData;
+import br.com.klok.desafio.mssale.infra.PostRabbitClient;
+import br.com.klok.desafio.mssale.infra.data.ClientDataDto;
+import br.com.klok.desafio.mssale.infra.data.PaymentDataDto;
+import br.com.klok.desafio.mssale.infra.data.ProductDataDto;
 import br.com.klok.desafio.mssale.model.entity.SaleModel;
+import br.com.klok.desafio.mssale.model.entity.SaleProductModel;
 import br.com.klok.desafio.mssale.model.enums.SaleStatusEnum;
 import br.com.klok.desafio.mssale.model.repository.SaleRepository;
 import br.com.klok.desafio.mssale.presetation.dto.SaleDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -18,23 +23,23 @@ import java.util.List;
 public class SaleServiceImpl implements SaleService {
 
     private final SaleRepository saleRepository;
-    private final SendSale sendSale;
+    private final PostRabbitClient postRabbitClient;
 
     @Override
     public void createSale(SaleDto saleDto) {
         try {
-            sendSale.getSaleToSend(saleDto);
+            postRabbitClient.postSaleToClient(saleDto);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public SaleModel saveSale(ClientData clientData){
+    public SaleModel saveSale(ClientDataDto clientDataDto){
         var saleModel = new SaleModel();
 
         saleModel.setStatus(SaleStatusEnum.CREATED);
-        saleModel.setClientId(clientData.getUuid());
+        saleModel.setClientId(clientDataDto.uuid());
 
         return this.saleRepository.save(saleModel);
     }
@@ -53,6 +58,16 @@ public class SaleServiceImpl implements SaleService {
     }
 
     @Override
+    public void responseSaleToPayment(PaymentDataDto paymentDataDto) {
+        var saleModel = this.getSaleById(paymentDataDto.uuidSale());
+        try {
+            postRabbitClient.postSaleToPayment(paymentDataDto);
+            this.updateSaleStatus(saleModel);
+        } catch (Exception e) {}
+
+    }
+
+    @Override
     public SaleModel getSaleByClientId(String uuid) {
 
         var optionalSale = saleRepository.findByClientId(uuid);
@@ -66,13 +81,38 @@ public class SaleServiceImpl implements SaleService {
     }
 
     @Override
-    public SaleModel updateSaleProductList(String saleId, String productId) {
-        return null;
+    public SaleModel updateSaleProductList(ProductDataDto productDataDto) {
+
+        var saleModel = this.getSaleById(productDataDto.saleUuid());
+        var saleProductList = saleModel.getSaleProdutcList();
+
+        var saleProductModel = new SaleProductModel();
+        saleProductModel.setName(productDataDto.productName());
+        saleProductModel.setQuantity(productDataDto.quantity());
+        saleProductModel.setPrice(productDataDto.price());
+
+        if(saleProductList.contains(saleProductModel)){
+            saleModel.setPrice(saleModel.getPrice()
+                    .subtract(saleProductModel.getPrice()
+                            .multiply(new BigDecimal(saleProductModel.getQuantity()))));
+
+            saleProductList.remove(saleProductModel);
+        } else {
+            saleModel.setPrice(saleModel.getPrice()
+                    .add(saleProductModel.getPrice()
+                            .multiply(new BigDecimal(saleProductModel.getQuantity()))));
+
+            saleModel.getSaleProdutcList().add(saleProductModel);
+        }
+
+        return saleRepository.save(saleModel);
     }
 
     @Override
-    public SaleModel updateSaleStatus(String id) {
-        return null;
+    public SaleModel updateSaleStatus(SaleModel saleModel) {
+        saleModel.setStatus(SaleStatusEnum.PAID);
+        saleModel.setPaidDate(new Date());
+        return saleRepository.save(saleModel);
     }
 
     @Override

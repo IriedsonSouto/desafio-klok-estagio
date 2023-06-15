@@ -8,7 +8,9 @@ import java.util.List;
 public interface PaymentService {
 
 
-    public void createPayment(PaymentDto sale);
+    public void createPayment(PaymentDto paymentDto);
+
+    public void savePayment(PaymentDto paymentDto);
 
     public List<PaymentModel> getAllPayment();
 

@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -20,6 +21,9 @@ public class SaleModel {
 
     @Column(name = "sale_create_date", nullable = false)
     private Date createDate = new Date();
+
+    @Column(name = "price_sale", scale = 2)
+    private BigDecimal price;
 
     @Column(name = "sale_paid_date")
     private Date paidDate;

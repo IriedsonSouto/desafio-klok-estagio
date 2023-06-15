@@ -1,8 +1,9 @@
 package br.com.klok.desafio.msclient.business.service.impl;
 
 import br.com.klok.desafio.msclient.business.service.ClientService;
-import br.com.klok.desafio.msclient.infra.SendClient;
+import br.com.klok.desafio.msclient.infra.PostRabbitClient;
 import br.com.klok.desafio.msclient.exception.EntityNotFoundException;
+import br.com.klok.desafio.msclient.infra.data.SaleDataDto;
 import br.com.klok.desafio.msclient.model.entity.ClientModel;
 import br.com.klok.desafio.msclient.model.repository.ClientRepository;
 import br.com.klok.desafio.msclient.presetation.dto.ClientDto;
@@ -16,7 +17,7 @@ import java.util.List;
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
-    private final SendClient queueSendClient;
+    private final PostRabbitClient queuePostRabbitClient;
 
 
     @Override
@@ -44,9 +45,9 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public void sendClient(ClientModel clientModel) {
+    public void sendClientToSale(SaleDataDto saleDataDto) {
         try {
-            this.queueSendClient.getClientToSend(clientModel);
+            this.queuePostRabbitClient.postClientToSale(saleDataDto);
         } catch (Exception e) {
             throw new EntityNotFoundException("Error internal");
         }

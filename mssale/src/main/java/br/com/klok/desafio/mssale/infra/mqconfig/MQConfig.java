@@ -9,12 +9,27 @@ import org.springframework.context.annotation.Configuration;
 public class MQConfig {
 
     @Value("${mq.queues.sale-client}")
-    private String queueSendSale;
+    private String queueSendSaleToClient;
+
+    @Value("${mq.queues.sale-payment}")
+    private String queueSendSaleToPayment;
+
+    @Value("${mq.queues.sale-product}")
+    private String queueSendSaleToProduct;
 
     @Bean
     public Queue queueSaleClient(){
-        return new Queue(queueSendSale , true);
+        return new Queue(queueSendSaleToClient , true);
     }
 
+    @Bean
+    public Queue queueSalePayment(){
+        return new Queue(queueSendSaleToPayment , true);
+    }
+
+    @Bean
+    public Queue queueSaleProduct(){
+        return new Queue(queueSendSaleToProduct , true);
+    }
 
 }

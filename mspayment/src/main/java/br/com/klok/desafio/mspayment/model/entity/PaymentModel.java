@@ -1,6 +1,6 @@
 package br.com.klok.desafio.mspayment.model.entity;
 
-import br.com.klok.desafio.mssale.model.enums.PaymentMethodEnum;
+import br.com.klok.desafio.mspayment.model.enums.PaymentMethodEnum;
 import com.fasterxml.uuid.Generators;
 import jakarta.persistence.*;
 import lombok.Getter;

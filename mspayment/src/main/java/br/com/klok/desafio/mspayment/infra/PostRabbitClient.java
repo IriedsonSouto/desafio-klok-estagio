@@ -1,6 +1,5 @@
 package br.com.klok.desafio.mspayment.infra;
 
-import br.com.klok.desafio.mspayment.model.entity.PaymentModel;
 import br.com.klok.desafio.mspayment.presetation.dto.PaymentDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,15 +10,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class SendData {
+public class PostRabbitClient {
 
     private final RabbitTemplate rabbitTemplate;
-    private final Queue queueSendClient;
+    private final Queue queuePaymentSend;
 
-    public void getSaleToSend(PaymentDto paymentDto) throws JsonProcessingException {
+    public void sendToSale(PaymentDto paymentDto) throws JsonProcessingException {
 
-        var saleDtoJson = convertToJson(paymentDto);
-        rabbitTemplate.convertAndSend(queueSendClient.getName(), saleDtoJson);
+        var paymentDtoJson = convertToJson(paymentDto);
+        rabbitTemplate.convertAndSend(queuePaymentSend.getName(), paymentDtoJson);
     }
 
     public String convertToJson(PaymentDto paymentDto) throws JsonProcessingException {

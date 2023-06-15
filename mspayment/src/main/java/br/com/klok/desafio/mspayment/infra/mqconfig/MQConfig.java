@@ -12,7 +12,7 @@ public class MQConfig {
     private String queueSendSale;
 
     @Bean
-    public Queue queueSaleClient(){
+    public Queue queuePaymentSale(){
         return new Queue(queueSendSale , true);
     }
 

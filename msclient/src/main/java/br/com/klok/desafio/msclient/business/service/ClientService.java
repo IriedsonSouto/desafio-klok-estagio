@@ -1,5 +1,6 @@
 package br.com.klok.desafio.msclient.business.service;
 
+import br.com.klok.desafio.msclient.infra.data.SaleDataDto;
 import br.com.klok.desafio.msclient.model.entity.ClientModel;
 import br.com.klok.desafio.msclient.presetation.dto.ClientDto;
 
@@ -15,7 +16,7 @@ public interface ClientService {
 
     public ClientModel getClientByEmail(String email);
 
-    public void sendClient(ClientModel clientModel) ;
+    public void sendClientToSale(SaleDataDto saleDataDto) ;
 
     public void deleteClientById(String id);
 

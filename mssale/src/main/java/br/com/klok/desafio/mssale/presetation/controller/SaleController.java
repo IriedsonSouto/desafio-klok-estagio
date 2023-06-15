@@ -1,8 +1,10 @@
 package br.com.klok.desafio.mssale.presetation.controller;
 
 import br.com.klok.desafio.mssale.business.SaleService;
+import br.com.klok.desafio.mssale.infra.data.ProductDataDto;
 import br.com.klok.desafio.mssale.model.entity.SaleModel;
 import br.com.klok.desafio.mssale.presetation.dto.SaleDto;
+import br.com.klok.desafio.mssale.presetation.dto.SaleWithProductDto;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -29,8 +31,19 @@ public class SaleController {
     }
 
     @GetMapping("/get-by-id/{id}")
-    public ResponseEntity<SaleModel> getSaleById(@PathVariable("id") String id){
-        return ResponseEntity.status(200).body(saleService.getSaleById(id));
+    public ResponseEntity<SaleWithProductDto> getSaleById(@PathVariable("id") String id){
+        return ResponseEntity.status(200).body(saleService.getSaleProductById(id));
+    }
+
+    @GetMapping("/get-by-client-id/{id}")
+    public ResponseEntity<List<SaleModel>> getSaleByClientId(@PathVariable("id") String id){
+        return ResponseEntity.status(200).body(saleService.getSaleByClientId(id));
+    }
+
+    @PutMapping("/update-list-product/{id}")
+    public ResponseEntity<SaleModel> updateSaleProductList(@PathVariable("id") String id, @RequestBody ProductDataDto productDataDto){
+
+        return ResponseEntity.status(200).body(saleService.consultProductToUpdateList(id, productDataDto));
     }
 
     @DeleteMapping("{id}")

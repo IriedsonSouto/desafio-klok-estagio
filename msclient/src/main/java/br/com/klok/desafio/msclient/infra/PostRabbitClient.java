@@ -1,7 +1,6 @@
 package br.com.klok.desafio.msclient.infra;
 
 import br.com.klok.desafio.msclient.infra.data.SaleDataDto;
-import br.com.klok.desafio.msclient.model.entity.ClientModel;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

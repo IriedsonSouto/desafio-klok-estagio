@@ -5,6 +5,7 @@ import br.com.klok.desafio.mssale.infra.data.PaymentDataDto;
 import br.com.klok.desafio.mssale.infra.data.ProductDataDto;
 import br.com.klok.desafio.mssale.presetation.dto.SaleDto;
 import br.com.klok.desafio.mssale.model.entity.SaleModel;
+import br.com.klok.desafio.mssale.presetation.dto.SaleWithProductDto;
 
 import java.util.List;
 
@@ -17,15 +18,19 @@ public interface SaleService {
 
     public List<SaleModel> getAllSale();
 
-    public SaleModel getSaleById(String id);
+    public  SaleModel getSaleById(String id);
+
+    public SaleWithProductDto getSaleProductById(String uuid);
+
+    public List<SaleModel> getSaleByClientId(String id);
 
     public void responseSaleToPayment(PaymentDataDto paymentDataDto);
 
-    public SaleModel getSaleByClientId(String id);
-
     public SaleModel updateSaleById(String id, SaleDto sale);
 
-    public SaleModel updateSaleProductList(ProductDataDto productDataDto);
+    public SaleModel consultProductToUpdateList(String id, ProductDataDto productDataDto);
+
+    public SaleWithProductDto updateSaleProductList(ProductDataDto productDataDto);
 
     public SaleModel updateSaleStatus(SaleModel saleModel);
 

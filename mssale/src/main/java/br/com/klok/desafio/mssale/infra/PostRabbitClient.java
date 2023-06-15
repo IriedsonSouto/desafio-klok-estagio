@@ -34,7 +34,7 @@ public class PostRabbitClient {
     public void postSaleToProduct(ProductDataDto productDataDto) throws JsonProcessingException {
 
         var saleDtoJson = convertToJson(productDataDto);
-        rabbitTemplate.convertAndSend(queueSalePayment.getName(), saleDtoJson);
+        rabbitTemplate.convertAndSend(queueSaleProduct.getName(), saleDtoJson);
     }
 
     public String convertToJson(Object object) throws JsonProcessingException {

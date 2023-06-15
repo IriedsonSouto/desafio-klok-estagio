@@ -1,5 +1,7 @@
 package br.com.klok.desafio.mssale.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.uuid.Generators;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,11 +14,11 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity(name = "tb_sale_product")
-@NoArgsConstructor
 @AllArgsConstructor
 public class SaleProductModel {
 
     @Id
+    @Column(name = "sale_product_uuid")
     private String uuid;
 
     @Column(name = "name_product", nullable = false)
@@ -28,9 +30,14 @@ public class SaleProductModel {
     @Column(name = "price_product", scale = 2, nullable = false)
     private BigDecimal price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonBackReference
+    @ManyToOne
     @JoinColumn(name = "sale_uuid_FK", nullable = false)
     private SaleModel saleModel;
+
+    public SaleProductModel(){
+        this.uuid = Generators.randomBasedGenerator().generate().toString();
+    }
 
     @Override
     public boolean equals(Object o) {

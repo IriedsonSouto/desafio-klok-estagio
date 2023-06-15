@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -31,9 +32,6 @@ public class SaleModel {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private SaleStatusEnum status;
-
-    @OneToMany(mappedBy = "saleModel", cascade = CascadeType.ALL)
-    private List<SaleProductModel> saleProdutcList;
 
     @Column(name ="client_uuid_FK", nullable = false)
     private String clientId;

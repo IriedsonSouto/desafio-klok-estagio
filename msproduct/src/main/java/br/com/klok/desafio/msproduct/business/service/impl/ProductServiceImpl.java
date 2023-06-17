@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -49,6 +50,20 @@ public class ProductServiceImpl implements ProductService {
         }
     }
 
+    @Override
+    public ProductModel updateProduct(String id, ProductDto productDto) {
+        var productModel = getProductById(id);
+
+        String name = productDto.getName() == null ? productModel.getName() : productDto.getName();
+        String description = productDto.getDescription() == null ? productModel.getDescription() : productDto.getDescription();
+        BigDecimal price = productDto.getPrice() == null ? productModel.getPrice() : productDto.getPrice();
+
+        productModel.setName(name);
+        productModel.setDescription(description);
+        productModel.setPrice(price);
+
+        return productRepository.save(productModel);
+    }
 
     @Override
     public void deleteProductById(String id) {

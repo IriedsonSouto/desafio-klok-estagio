@@ -14,7 +14,9 @@ public interface ProductService {
 
     public ProductModel getProductById(String id);
 
-    public void sendProductToSale(ProductSaleDataDto saleDataDto) ;
+    public void sendProductToSale(ProductSaleDataDto saleDataDto);
+
+    public ProductModel updateProduct(String id, ProductDto client);
 
     public void deleteProductById(String id);
 

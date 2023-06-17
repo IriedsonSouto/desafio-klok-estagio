@@ -33,6 +33,11 @@ public class PaymentController {
         return ResponseEntity.status(200).body(paymentService.getPaymentById(id));
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity updatePaymentById(@PathVariable("id") String id, @Valid @RequestBody PaymentDto paymentDto){
+        return ResponseEntity.status(200).body(paymentService.updatePaymentById(id, paymentDto));
+    }
+
     @DeleteMapping("{id}")
     public ResponseEntity<String> deletePaymentById(@PathVariable("id") String id){
         paymentService.deletePaymentById(id);

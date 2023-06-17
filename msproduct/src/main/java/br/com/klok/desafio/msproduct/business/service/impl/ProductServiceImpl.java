@@ -8,12 +8,14 @@ import br.com.klok.desafio.msproduct.model.entity.ProductModel;
 import br.com.klok.desafio.msproduct.model.repository.ProductRepository;
 import br.com.klok.desafio.msproduct.presetation.dto.ProductDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
@@ -41,8 +43,9 @@ public class ProductServiceImpl implements ProductService {
     public void sendProductToSale(ProductSaleDataDto productSaleDataDto) {
         try {
             this.queuePostRabbitProduct.postProductToSale(productSaleDataDto);
+            log.info("Send product to mssale: " + productSaleDataDto.productName() + " " + productSaleDataDto.productUuid());
         } catch (Exception e) {
-            throw new EntityNotFoundException("Error internal");
+            log.error(e.getMessage());
         }
     }
 

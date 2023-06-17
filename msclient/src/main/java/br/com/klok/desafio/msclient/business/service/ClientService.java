@@ -18,6 +18,8 @@ public interface ClientService {
 
     public void sendClientToSale(SaleDataDto saleDataDto) ;
 
+    public ClientModel updateClient(String id, ClientDto client);
+
     public void deleteClientById(String id);
 
 }

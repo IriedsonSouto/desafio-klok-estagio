@@ -4,6 +4,7 @@ import br.com.klok.desafio.mssale.business.SaleService;
 import br.com.klok.desafio.mssale.exception.EntityNotFoundException;
 import br.com.klok.desafio.mssale.infra.PostRabbitClient;
 import br.com.klok.desafio.mssale.infra.data.ClientDataDto;
+import br.com.klok.desafio.mssale.infra.data.ConsultProductDto;
 import br.com.klok.desafio.mssale.infra.data.PaymentDataDto;
 import br.com.klok.desafio.mssale.infra.data.ProductDataDto;
 import br.com.klok.desafio.mssale.model.entity.SaleModel;
@@ -14,6 +15,7 @@ import br.com.klok.desafio.mssale.model.repository.SaleRepository;
 import br.com.klok.desafio.mssale.presetation.dto.SaleDto;
 import br.com.klok.desafio.mssale.presetation.dto.SaleWithProductDto;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -22,6 +24,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class SaleServiceImpl implements SaleService {
 
     private final SaleRepository saleRepository;
@@ -32,6 +35,7 @@ public class SaleServiceImpl implements SaleService {
     public void createSale(SaleDto saleDto) {
         try {
             postRabbitClient.postSaleToClient(saleDto);
+            log.info("Request sent to msclient");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -44,7 +48,11 @@ public class SaleServiceImpl implements SaleService {
         saleModel.setStatus(SaleStatusEnum.CREATED);
         saleModel.setClientId(clientDataDto.uuid());
 
-        return this.saleRepository.save(saleModel);
+        saleModel = this.saleRepository.save(saleModel);
+
+        log.info("New sale created in the database");
+
+        return saleModel;
     }
 
     @Override
@@ -86,7 +94,10 @@ public class SaleServiceImpl implements SaleService {
         try {
             postRabbitClient.postSaleToPayment(paymentDataDto);
             this.updateSaleStatus(saleModel);
-        } catch (Exception e) {}
+            log.info("Response sent to mspayment");
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
 
     }
 
@@ -96,18 +107,21 @@ public class SaleServiceImpl implements SaleService {
     }
 
     @Override
-    public SaleModel consultProductToUpdateList(String id, ProductDataDto productDataDto) {
+    public SaleModel consultProductToUpdateList(String id, ConsultProductDto consultProductDto) {
 
         var saleModel = this.getSaleById(id);
 
         var sendProductDataDto = new ProductDataDto(saleModel.getUuid()
                                                   , null
-                                                  , productDataDto.productUuid()
+                                                  , consultProductDto.productUuid()
                                                   , null
-                                                  , productDataDto.quantity());
+                                                  , consultProductDto.quantity());
         try {
             postRabbitClient.postSaleToProduct(sendProductDataDto);
-        } catch (Exception e) {}
+            log.info("Request sent to msproduct");
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        }
         return saleModel;
     }
 
@@ -125,6 +139,7 @@ public class SaleServiceImpl implements SaleService {
         saleProductModel.setSaleModel(saleModel);
 
         BigDecimal currentPrice = saleModel.getPrice() == null ? new BigDecimal(0) : saleModel.getPrice();
+        String logMenssage;
 
         if(saleProductList.contains(saleProductModel)){
             saleModel.setPrice(currentPrice
@@ -132,6 +147,7 @@ public class SaleServiceImpl implements SaleService {
                             .multiply(new BigDecimal(saleProductModel.getQuantity()))));
 
             saleProductRepository.delete(saleProductList.remove(saleProductList.indexOf(saleProductModel)));
+            logMenssage = "Product deleted to the sale";
         } else {
             saleModel.setPrice(currentPrice
                     .add(saleProductModel.getPrice()
@@ -139,12 +155,15 @@ public class SaleServiceImpl implements SaleService {
 
             saleProductRepository.save(saleProductModel);
             saleProductList.add(saleProductModel);
+            logMenssage = "New product added to the sale";
         }
 
         saleRepository.save(saleModel);
 
         var saleWithProductDto = new SaleWithProductDto(saleModel);
         saleWithProductDto.setProducts(saleProductList);
+
+        log.info(logMenssage + saleWithProductDto.getUuid());
 
         return saleWithProductDto;
     }
@@ -153,13 +172,20 @@ public class SaleServiceImpl implements SaleService {
     public SaleModel updateSaleStatus(SaleModel saleModel) {
         saleModel.setStatus(SaleStatusEnum.PAID);
         saleModel.setPaidDate(new Date());
+
+        log.info("Sale" + saleModel.getUuid() + "status updated to " + saleModel.getStatus());
+
         return saleRepository.save(saleModel);
     }
 
     @Override
     public void deleteSaleById(String uuid) {
         var sale = this.getSaleById(uuid);
-        saleRepository.delete(sale);
+
+        if (sale.getStatus().equals(SaleStatusEnum.CREATED)) {
+            saleRepository.delete(sale);
+        }
+        throw new RuntimeException("Cannot cancel paid sales");
     }
 
 }

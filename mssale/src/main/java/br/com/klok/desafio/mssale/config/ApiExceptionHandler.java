@@ -28,7 +28,18 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
                                                             ex.getMessage());
 
         return new ResponseEntity<>(apiErrorDetails, apiErrorDetails.getStatus());
-    }    
+    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public final ResponseEntity<Object> handleRunTimeException(EntityNotFoundException exception,
+                                                                    WebRequest request) {
+
+        EntityErrorDetails apiErrorDetails = new EntityErrorDetails(HttpStatus.UNAUTHORIZED,
+                                                                "Unauthorized operation",
+                                                                exception.getMessage());
+
+        return new ResponseEntity<>(apiErrorDetails, new HttpHeaders(), apiErrorDetails.getStatus());
+    }
 
     @Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,

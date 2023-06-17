@@ -8,12 +8,14 @@ import br.com.klok.desafio.msclient.model.entity.ClientModel;
 import br.com.klok.desafio.msclient.model.repository.ClientRepository;
 import br.com.klok.desafio.msclient.presetation.dto.ClientDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
@@ -48,9 +50,23 @@ public class ClientServiceImpl implements ClientService {
     public void sendClientToSale(SaleDataDto saleDataDto) {
         try {
             this.queuePostRabbitClient.postClientToSale(saleDataDto);
+            log.info("Client " + saleDataDto.email() + " sent to mssale");
         } catch (Exception e) {
-            throw new EntityNotFoundException("Error internal");
+            log.error(e.getMessage());
         }
+    }
+
+    @Override
+    public ClientModel updateClient(String id, ClientDto clientDto) {
+        var clientModel = getClientById(id);
+
+        String name = clientDto.getName() == null ? clientModel.getName() : clientDto.getName();
+        String email = clientDto.getEmail() == null ? clientModel.getEmail() : clientDto.getEmail();
+
+        clientModel.setName(name);
+        clientModel.setEmail(email);
+
+        return clientRepository.save(clientModel);
     }
 
 

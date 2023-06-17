@@ -1,6 +1,7 @@
 package br.com.klok.desafio.mssale.presetation.controller;
 
 import br.com.klok.desafio.mssale.business.SaleService;
+import br.com.klok.desafio.mssale.infra.data.ConsultProductDto;
 import br.com.klok.desafio.mssale.infra.data.ProductDataDto;
 import br.com.klok.desafio.mssale.model.entity.SaleModel;
 import br.com.klok.desafio.mssale.presetation.dto.SaleDto;
@@ -41,9 +42,9 @@ public class SaleController {
     }
 
     @PutMapping("/update-list-product/{id}")
-    public ResponseEntity<SaleModel> updateSaleProductList(@PathVariable("id") String id, @RequestBody ProductDataDto productDataDto){
+    public ResponseEntity<SaleModel> updateSaleProductList(@PathVariable("id") String id, @RequestBody ConsultProductDto consultProductDto){
 
-        return ResponseEntity.status(200).body(saleService.consultProductToUpdateList(id, productDataDto));
+        return ResponseEntity.status(200).body(saleService.consultProductToUpdateList(id, consultProductDto));
     }
 
     @DeleteMapping("{id}")

@@ -1,6 +1,7 @@
 package br.com.klok.desafio.mssale.business;
 
 import br.com.klok.desafio.mssale.infra.data.ClientDataDto;
+import br.com.klok.desafio.mssale.infra.data.ConsultProductDto;
 import br.com.klok.desafio.mssale.infra.data.PaymentDataDto;
 import br.com.klok.desafio.mssale.infra.data.ProductDataDto;
 import br.com.klok.desafio.mssale.presetation.dto.SaleDto;
@@ -28,7 +29,7 @@ public interface SaleService {
 
     public SaleModel updateSaleById(String id, SaleDto sale);
 
-    public SaleModel consultProductToUpdateList(String id, ProductDataDto productDataDto);
+    public SaleModel consultProductToUpdateList(String id, ConsultProductDto consultProductDto);
 
     public SaleWithProductDto updateSaleProductList(ProductDataDto productDataDto);
 

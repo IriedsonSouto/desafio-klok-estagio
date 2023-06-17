@@ -37,6 +37,11 @@ public class ClientController {
         return ResponseEntity.status(200).body(clientService.getClientByEmail(email));
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity<ClientModel> updateClientById(@PathVariable("id") String id, @Valid @RequestBody ClientDto clientDto){
+        return ResponseEntity.status(200).body(clientService.updateClient(id, clientDto));
+    }
+
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteClientById(@PathVariable("id") String id){
         clientService.deleteClientById(id);

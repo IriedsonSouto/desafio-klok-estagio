@@ -21,7 +21,7 @@ public interface SaleService {
 
     public  SaleModel getSaleById(String id);
 
-    public SaleWithProductDto getSaleProductById(String uuid);
+    public SaleWithProductDto getSaleWithProductById(String uuid);
 
     public List<SaleModel> getSaleByClientId(String id);
 

@@ -71,11 +71,11 @@ public class SaleControllerUnitaryTest {
         var saleProductMock = mock(SaleWithProductDto.class);
 
         when(saleService.getSaleById(uuid)).thenReturn(saleModelMock);
-        when(saleService.getSaleProductById(uuid)).thenReturn(saleProductMock);
+        when(saleService.getSaleWithProductById(uuid)).thenReturn(saleProductMock);
 
         ResponseEntity<SaleWithProductDto> response = saleController.getSaleById(uuid);
 
-        verify(saleService).getSaleById(uuid);
+        verify(saleService).getSaleWithProductById(uuid);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
         Assertions.assertEquals(saleProductMock, response.getBody());
     }
@@ -102,14 +102,14 @@ public class SaleControllerUnitaryTest {
     @DisplayName("Test update productList SaleController")
     public void testUpdateProductSale() {
         String uuid = "abc123";
-        var consultProductDtoMock = mock(ConsultProductDto.class);
+        var consultProduct = new ConsultProductDto("123", 2);
         var saleModelMock = mock(SaleModel.class);
 
-        when(saleService.consultProductToUpdateList(uuid, consultProductDtoMock)).thenReturn(saleModelMock);
+        when(saleService.consultProductToUpdateList(uuid, consultProduct)).thenReturn(saleModelMock);
 
-        ResponseEntity<SaleModel> response = saleController.updateSaleProductList(uuid, consultProductDtoMock);
+        ResponseEntity<SaleModel> response = saleController.updateSaleProductList(uuid, consultProduct);
 
-        verify(saleService).consultProductToUpdateList(uuid, consultProductDtoMock);
+        verify(saleService).consultProductToUpdateList(uuid, consultProduct);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
         Assertions.assertEquals(saleModelMock, response.getBody());
     }

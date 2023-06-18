@@ -32,7 +32,7 @@ public class SaleController {
 
     @GetMapping("/get-by-id/{id}")
     public ResponseEntity<SaleWithProductDto> getSaleById(@PathVariable("id") String id){
-        return ResponseEntity.status(200).body(saleService.getSaleProductById(id));
+        return ResponseEntity.status(200).body(saleService.getSaleWithProductById(id));
     }
 
     @GetMapping("/get-by-client-id/{id}")

@@ -49,11 +49,11 @@ public class SaleServiceImpl implements SaleService {
         saleModel.setStatus(SaleStatusEnum.CREATED);
         saleModel.setClientId(clientDataDto.uuid());
 
-        saleModel = this.saleRepository.save(saleModel);
+        var saleModelCreate = this.saleRepository.save(saleModel);
 
         log.info("New sale created in the database");
 
-        return saleModel;
+        return saleModelCreate;
     }
 
     @Override
@@ -70,11 +70,10 @@ public class SaleServiceImpl implements SaleService {
     }
 
     @Override
-    public SaleWithProductDto getSaleProductById(String uuid) {
+    public SaleWithProductDto getSaleWithProductById(String uuid) {
 
-        var optionalSale = saleRepository.findById(uuid);
-        var saleModel = optionalSale.orElseThrow( () -> new EntityNotFoundException("Sale: " + uuid + " not found"));
-        var saleProductList = saleProductRepository.getSaleProductsBySaleId(uuid);
+        var saleModel = this.getSaleById(uuid);
+        var saleProductList = saleProductRepository.getSaleProductsBySaleId(saleModel.getUuid());
 
         var saleWithProductDto = new SaleWithProductDto(saleModel);
 
@@ -148,7 +147,7 @@ public class SaleServiceImpl implements SaleService {
                             .multiply(new BigDecimal(saleProductModel.getQuantity()))));
 
             saleProductRepository.delete(saleProductList.remove(saleProductList.indexOf(saleProductModel)));
-            logMenssage = "Product deleted to the sale";
+            logMenssage = "Product deleted to the sale ";
         } else {
             saleModel.setPrice(currentPrice
                     .add(saleProductModel.getPrice()
@@ -156,7 +155,7 @@ public class SaleServiceImpl implements SaleService {
 
             saleProductRepository.save(saleProductModel);
             saleProductList.add(saleProductModel);
-            logMenssage = "New product added to the sale";
+            logMenssage = "New product added to the sale ";
         }
 
         saleRepository.save(saleModel);
@@ -174,7 +173,7 @@ public class SaleServiceImpl implements SaleService {
         saleModel.setStatus(SaleStatusEnum.PAID);
         saleModel.setPaidDate(new Date());
 
-        log.info("Sale" + saleModel.getUuid() + "status updated to " + saleModel.getStatus());
+        log.info("Sale " + saleModel.getUuid() + " status updated to " + saleModel.getStatus());
 
         return saleRepository.save(saleModel);
     }
@@ -184,14 +183,17 @@ public class SaleServiceImpl implements SaleService {
         var sale = this.getSaleById(uuid);
 
         if (sale.getStatus().equals(SaleStatusEnum.CREATED)) {
+            var saleProductList = saleProductRepository.getSaleProductsBySaleId(uuid);
+            saleProductRepository.deleteAll(saleProductList);
             saleRepository.delete(sale);
+        } else {
+            throw new RuntimeException("Cannot cancel paid sales");
         }
-        throw new RuntimeException("Cannot cancel paid sales");
     }
 
     @Override
     public void salesCharge() {
-        var listAllSales = getAllSale();
+        var listAllSales = this.getAllSale();
 
         var listSalesCharge = listAllSales.stream()
                                                     .filter(sale -> sale.getStatus() == SaleStatusEnum.CREATED)

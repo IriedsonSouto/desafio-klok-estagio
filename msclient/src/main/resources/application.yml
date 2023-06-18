@@ -22,6 +22,7 @@ mq:
   queues:
     client-sale: client-sale
     sale-client: sale-client
+    saleToClient-demand: saleToClient-demand
 
 management:
   endpoints:

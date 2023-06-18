@@ -59,7 +59,7 @@ public class ProductDtoUnitaryTest {
     @Order(3)
     @Tag("convert_method")
     @DisplayName("Convert ProductDTO for ProductModel")
-    public void testClientDTOForClientModel() {
+    public void testProductDTOForProductModel() {
 
         ProductModel productModel = ProductDto.convertToModel(productDto);
         assertInstanceOf(ProductModel.class, productModel);

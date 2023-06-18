@@ -2,7 +2,6 @@ package br.com.klok.desafio.mssale.presetation.controller;
 
 import br.com.klok.desafio.mssale.business.SaleService;
 import br.com.klok.desafio.mssale.infra.data.ConsultProductDto;
-import br.com.klok.desafio.mssale.infra.data.ProductDataDto;
 import br.com.klok.desafio.mssale.model.entity.SaleModel;
 import br.com.klok.desafio.mssale.presetation.dto.SaleDto;
 import br.com.klok.desafio.mssale.presetation.dto.SaleWithProductDto;
@@ -23,7 +22,7 @@ public class SaleController {
     @PostMapping
     public ResponseEntity createSale(@Valid @RequestBody SaleDto saleDto){
         saleService.createSale(saleDto);
-        return ResponseEntity.status(200).body("Sucessofully");
+        return ResponseEntity.status(200).body("Successfully");
     }
 
     @GetMapping
@@ -43,14 +42,13 @@ public class SaleController {
 
     @PutMapping("/update-list-product/{id}")
     public ResponseEntity<SaleModel> updateSaleProductList(@PathVariable("id") String id, @RequestBody ConsultProductDto consultProductDto){
-
         return ResponseEntity.status(200).body(saleService.consultProductToUpdateList(id, consultProductDto));
     }
 
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteSaleById(@PathVariable("id") String id){
         saleService.deleteSaleById(id);
-        return ResponseEntity.status(200).body("Sucessofully deleted!");
+        return ResponseEntity.status(200).body("Successfully deleted!");
     }
 
 }

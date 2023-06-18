@@ -20,7 +20,7 @@ public class PaymentController {
     @PostMapping
     public ResponseEntity createPayment(@Valid @RequestBody PaymentDto paymentDto){
         paymentService.createPayment(paymentDto);
-        return ResponseEntity.status(200).body("Sucessofully");
+        return ResponseEntity.status(200).body("Successfully");
     }
 
     @GetMapping
@@ -41,7 +41,7 @@ public class PaymentController {
     @DeleteMapping("{id}")
     public ResponseEntity<String> deletePaymentById(@PathVariable("id") String id){
         paymentService.deletePaymentById(id);
-        return ResponseEntity.status(200).body("Sucessofully deleted!");
+        return ResponseEntity.status(200).body("Successfully deleted!");
     }
 
 }

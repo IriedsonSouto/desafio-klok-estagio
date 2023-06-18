@@ -11,6 +11,9 @@ spring:
 server:
   port: 0
 
+schedule:
+  cron: "0 12 * * 1,3,5"
+
 eureka:
   client:
     service-url:
@@ -22,6 +25,7 @@ mq:
   queues:
     client-sale: client-sale
     sale-client: sale-client
+    saleToClient-demand: saleToClient-demand
     payment-sale: payment-sale
     sale-payment: sale-payment
     product-sale: product-sale

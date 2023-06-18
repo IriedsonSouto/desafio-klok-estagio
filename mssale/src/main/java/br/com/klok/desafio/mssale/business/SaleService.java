@@ -37,5 +37,5 @@ public interface SaleService {
 
     public void deleteSaleById(String id);
 
-
+    public void salesCharge();
 }

@@ -131,6 +131,6 @@ public class ClientControllerUnitaryTest {
 
         verify(clientService).deleteClientById(uuid);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
-        Assertions.assertEquals("Sucessofully deleted!", response.getBody());
+        Assertions.assertEquals("Successfully deleted!", response.getBody());
     }
 }

@@ -17,6 +17,9 @@ public class MQConfig {
     @Value("${mq.queues.sale-product}")
     private String queueSendSaleToProduct;
 
+    @Value("${mq.queues.saleToClient-demand}")
+    private String queueSendSaleChargeToClient;
+
     @Bean
     public Queue queueSaleClient(){
         return new Queue(queueSendSaleToClient , true);
@@ -30,6 +33,11 @@ public class MQConfig {
     @Bean
     public Queue queueSaleProduct(){
         return new Queue(queueSendSaleToProduct , true);
+    }
+
+    @Bean
+    public Queue queueSaleCharge(){
+        return new Queue(queueSendSaleChargeToClient , true);
     }
 
 }

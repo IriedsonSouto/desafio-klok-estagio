@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -188,4 +189,14 @@ public class SaleServiceImpl implements SaleService {
         throw new RuntimeException("Cannot cancel paid sales");
     }
 
+    @Override
+    public void salesCharge() {
+        var listAllSales = getAllSale();
+
+        var listSalesCharge = listAllSales.stream()
+                                                    .filter(sale -> sale.getStatus() == SaleStatusEnum.CREATED)
+                                                    .collect(Collectors.toList());
+
+        postRabbitClient.postSalesCharge(listSalesCharge);
+    }
 }

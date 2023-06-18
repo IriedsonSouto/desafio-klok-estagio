@@ -2,6 +2,7 @@ package br.com.klok.desafio.mssale.infra;
 
 import br.com.klok.desafio.mssale.infra.data.PaymentDataDto;
 import br.com.klok.desafio.mssale.infra.data.ProductDataDto;
+import br.com.klok.desafio.mssale.model.entity.SaleModel;
 import br.com.klok.desafio.mssale.presetation.dto.SaleDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -18,6 +21,7 @@ public class PostRabbitClient {
     private final Queue queueSaleClient;
     private final Queue queueSalePayment;
     private final Queue queueSaleProduct;
+    private final Queue queueSaleCharge;
 
     public void postSaleToClient(SaleDto saleDto) throws JsonProcessingException {
 
@@ -35,6 +39,10 @@ public class PostRabbitClient {
 
         var saleDtoJson = convertToJson(productDataDto);
         rabbitTemplate.convertAndSend(queueSaleProduct.getName(), saleDtoJson);
+    }
+
+    public void postSalesCharge(List<SaleModel> salesCharge){
+        rabbitTemplate.convertAndSend(queueSaleCharge.getName(), salesCharge);
     }
 
     public String convertToJson(Object object) throws JsonProcessingException {

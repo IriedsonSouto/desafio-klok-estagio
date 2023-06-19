@@ -1,6 +1,6 @@
 package br.com.klok.desafio.msclient.presetation.controller;
 
-import br.com.klok.desafio.msclient.business.ClientService;
+import br.com.klok.desafio.msclient.business.service.ClientService;
 import br.com.klok.desafio.msclient.model.entity.ClientModel;
 import br.com.klok.desafio.msclient.presetation.dto.ClientDto;
 import jakarta.validation.Valid;
@@ -37,9 +37,15 @@ public class ClientController {
         return ResponseEntity.status(200).body(clientService.getClientByEmail(email));
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity<ClientModel> updateClientById(@PathVariable("id") String id, @Valid @RequestBody ClientDto clientDto){
+        return ResponseEntity.status(200).body(clientService.updateClient(id, clientDto));
+    }
+
     @DeleteMapping("{id}")
     public ResponseEntity<String> deleteClientById(@PathVariable("id") String id){
-        return ResponseEntity.status(200).body("Sucessofully deleted!");
+        clientService.deleteClientById(id);
+        return ResponseEntity.status(200).body("Successfully deleted!");
     }
 
 }

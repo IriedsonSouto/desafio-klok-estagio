@@ -1,0 +1,145 @@
+version: '3'
+
+services:
+  keycloak:
+    container_name: keycloak
+    build:
+      context: ./keycloak
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3.12-management
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+
+  postgres:
+    container_name: postgres
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: desafio
+      POSTGRES_PASSWORD: desafio
+      POSTGRES_MULTIPLE_DATABASES: msclient-db,mssale-db,msproduct-db,mspayment-db
+    volumes:
+      - ./postgres/data:/var/lib/postgresql/data
+
+  eurekaserver:
+    container_name: eurekaserver
+    build:
+      context: ./eurekaserver
+      dockerfile: Dockerfile
+    ports:
+      - 8761:8761
+
+  mscloudgateway:
+    container_name: mscloudgateway
+    build:
+      context: ./mscloudgateway
+      dockerfile: Dockerfile
+    ports:
+      - 8081:8081
+    environment:
+      KEY_SERVER: keycloak:8080/realms/desafioklok
+      EUREKA_SERVER: localhost:8761/eureka
+    depends_on:
+      - eurekaserver
+      - msclient
+      - msproduct
+      - mspayment
+      - mssale
+    links:
+      - eurekaserver
+      - msclient
+      - msproduct
+      - mspayment
+      - mssale
+      - keycloak
+
+  msclient:
+    container_name: msclient
+    build:
+      context: ./msclient
+      dockerfile: Dockerfile
+    environment:
+      EUREKA_SERVER: eurekaserver:8761/eureka
+      RABBITMQ_SERVER: rabbitmq
+      DB_URL: postgres:5432/msclient-db?createDatabaseIfNotExist=true
+      DB_USERNAME: desafio
+      DB_PASSWORD: desafio
+    depends_on:
+      - eurekaserver
+      - postgres
+    links:
+      - eurekaserver
+      - postgres
+      - rabbitmq
+
+  msproduct:
+    container_name: msproduct
+    build:
+      context: ./msproduct
+      dockerfile: Dockerfile
+    environment:
+      EUREKA_SERVER: eurekaserver:8761/eureka
+      RABBITMQ_SERVER: rabbitmq
+      DB_URL: postgres:5432/msproduct-db?createDatabaseIfNotExist=true
+      DB_USERNAME: desafio
+      DB_PASSWORD: desafio
+    depends_on:
+      - eurekaserver
+      - postgres
+    links:
+      - eurekaserver
+      - postgres
+      - rabbitmq
+
+  mspayment:
+    container_name: mspayment
+    build:
+      context: ./mspayment
+      dockerfile: Dockerfile
+    environment:
+      EUREKA_SERVER: eurekaserver:8761/eureka
+      RABBITMQ_SERVER: rabbitmq
+      DB_URL: postgres:5432/mspayment-db?createDatabaseIfNotExist=true
+      DB_USERNAME: desafio
+      DB_PASSWORD: desafio
+    depends_on:
+      - eurekaserver
+      - postgres
+    links:
+      - eurekaserver
+      - postgres
+      - rabbitmq
+
+  mssale:
+    container_name: mssale
+    build:
+      context: ./mssale
+      dockerfile: Dockerfile
+    environment:
+      EUREKA_SERVER: eurekaserver:8761/eureka
+      RABBITMQ_SERVER: rabbitmq
+      DB_URL: postgres:5432/mssale-db?createDatabaseIfNotExist=true
+      DB_USERNAME: desafio
+      DB_PASSWORD: desafio
+    depends_on:
+      - eurekaserver
+      - postgres
+    links:
+      - eurekaserver
+      - postgres
+      - rabbitmq

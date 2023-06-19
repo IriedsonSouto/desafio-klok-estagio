@@ -7,10 +7,15 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://${KEY_SERVER}
 
 
 server:
-  port: 8080
+  port: 8081
 
 
 eureka:
@@ -18,4 +23,4 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZones: http://localhost:8761/eureka
+      defaultZones: http://${EUREKA_SERVER}

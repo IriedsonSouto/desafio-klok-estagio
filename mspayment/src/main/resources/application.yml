@@ -1,0 +1,46 @@
+
+spring:
+  application:
+    name: mspayment
+  rabbitmq:
+    host: ${RABBITMQ_SERVER}
+    port: 5672
+    username: guest
+    password: guest
+  datasource:
+    url: jdbc:postgresql://${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+  jpa:
+    show-sql: true
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+server:
+  port: 0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_SERVER}
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+mq:
+  queues:
+    payment-sale: payment-sale
+    sale-payment: sale-payment
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  file:
+    name: ./logs/log-file.log

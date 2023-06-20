@@ -7,6 +7,18 @@ spring:
     port: 5672
     username: guest
     password: guest
+  datasource:
+    url: jdbc:postgresql://localhost:5433/msproductdb?createDatabaseIfNotExist=true
+    username: desafio
+    password: desafio
+  jpa:
+    show-sql: true
+    hibernate:
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 server:
   port: 0

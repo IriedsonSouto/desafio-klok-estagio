@@ -1,0 +1,4 @@
+CREATE DATABASE msclientdb;
+CREATE DATABASE mspaymentdb;
+CREATE DATABASE mssaledb;
+CREATE DATABASE msproductdb;

@@ -1,0 +1,386 @@
+2023-06-19T22:38:30.808-03:00  INFO 8444 --- [restartedMain] b.c.k.d.m.ClientMicroserviceApplication  : Starting ClientMicroserviceApplication using Java 17.0.7 with PID 8444 (C:\Users\Iried\Desktop\Desafio Klok\msclient\target\classes started by Iried in C:\Users\Iried\Desktop\Desafio Klok\msclient)
+2023-06-19T22:38:30.811-03:00  INFO 8444 --- [restartedMain] b.c.k.d.m.ClientMicroserviceApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-06-19T22:38:30.887-03:00  INFO 8444 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-19T22:38:30.888-03:00  INFO 8444 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-19T22:38:32.481-03:00  INFO 8444 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-19T22:38:32.683-03:00  INFO 8444 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 189 ms. Found 1 JPA repository interfaces.
+2023-06-19T22:38:33.027-03:00  INFO 8444 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f4415605-d537-31db-8f9c-3be101160f1d
+2023-06-19T22:38:33.896-03:00  INFO 8444 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-06-19T22:38:33.909-03:00  INFO 8444 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-19T22:38:33.910-03:00  INFO 8444 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-19T22:38:34.012-03:00  INFO 8444 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-19T22:38:34.013-03:00  INFO 8444 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3124 ms
+2023-06-19T22:38:34.513-03:00  INFO 8444 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-19T22:38:34.628-03:00  INFO 8444 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-06-19T22:38:34.633-03:00  INFO 8444 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-06-19T22:38:35.005-03:00  INFO 8444 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-06-19T22:38:35.412-03:00  INFO 8444 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-06-19T22:38:35.470-03:00  INFO 8444 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-19T22:38:35.969-03:00  INFO 8444 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2e20fbe
+2023-06-19T22:38:35.971-03:00  INFO 8444 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-19T22:38:36.079-03:00  INFO 8444 --- [restartedMain] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@15508f7e
+2023-06-19T22:38:36.370-03:00  INFO 8444 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-06-19T22:38:37.288-03:00  INFO 8444 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-19T22:38:37.652-03:00  WARN 8444 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Warning Code: 0, SQLState: 00000
+2023-06-19T22:38:37.652-03:00  WARN 8444 --- [restartedMain] o.h.engine.jdbc.spi.SqlExceptionHelper   : constraint "uk_tbu74oe5ntiego6pu36jfokha" of relation "tb_client" does not exist, skipping
+2023-06-19T22:38:37.688-03:00  INFO 8444 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-19T22:38:38.525-03:00  WARN 8444 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-19T22:38:40.296-03:00  INFO 8444 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-19T22:38:40.474-03:00  INFO 8444 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-06-19T22:38:40.568-03:00  WARN 8444 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-06-19T22:38:40.568-03:00  INFO 8444 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/actuator'
+2023-06-19T22:38:40.697-03:00  WARN 8444 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.springframework.amqp.rabbit.core.RabbitAdmin
+2023-06-19T22:38:40.820-03:00  INFO 8444 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 49231 (http) with context path ''
+2023-06-19T22:38:40.820-03:00  INFO 8444 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 49231
+2023-06-19T22:38:40.820-03:00  INFO 8444 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-06-19T22:38:40.867-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-06-19T22:38:40.882-03:00  INFO 8444 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-06-19T22:38:40.898-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-06-19T22:38:40.898-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-06-19T22:38:40.898-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-06-19T22:38:40.898-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-06-19T22:38:40.898-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-06-19T22:38:40.898-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-06-19T22:38:40.898-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-06-19T22:38:42.122-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-06-19T22:38:42.122-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2023-06-19T22:38:42.122-03:00  INFO 8444 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-06-19T22:38:42.138-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1687225122138 with initial instances count: 0
+2023-06-19T22:38:42.138-03:00  INFO 8444 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MSCLIENT with eureka with status UP
+2023-06-19T22:38:42.138-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1687225122138, current=UP, previous=STARTING]
+2023-06-19T22:38:42.138-03:00  INFO 8444 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSCLIENT/msclient:3892880a290d002ec2eee2b23d5643d4: registering service...
+2023-06-19T22:38:42.275-03:00  INFO 8444 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSCLIENT/msclient:3892880a290d002ec2eee2b23d5643d4 - registration status: 204
+2023-06-19T22:38:42.275-03:00  INFO 8444 --- [restartedMain] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-06-19T22:38:42.557-03:00  INFO 8444 --- [restartedMain] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#5978b8d9:0/SimpleConnection@7fa65b99 [delegate=amqp://guest@127.0.0.1:5672/, localPort=49238]
+2023-06-19T22:38:42.824-03:00  WARN 8444 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.listener.BlockingQueueConsumer   : Failed to declare queue: saleToClient-demand
+2023-06-19T22:38:42.825-03:00  WARN 8444 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.listener.BlockingQueueConsumer   : Queue declaration failed; retries left=3
+
+org.springframework.amqp.rabbit.listener.BlockingQueueConsumer$DeclarationException: Failed to declare queue(s):[saleToClient-demand]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:760) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.passiveDeclarations(BlockingQueueConsumer.java:637) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:624) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1385) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1230) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:129) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:125) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:147) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:1012) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:46) ~[amqp-client-5.17.0.jar:5.17.0]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1137) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at jdk.proxy2/jdk.proxy2.$Proxy193.queueDeclarePassive(Unknown Source) ~[na:na]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:738) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	... 5 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'saleToClient-demand' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:502) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:293) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:141) ~[amqp-client-5.17.0.jar:5.17.0]
+	... 14 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'saleToClient-demand' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:517) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:341) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:182) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:114) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:743) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:47) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:670) ~[amqp-client-5.17.0.jar:5.17.0]
+	... 1 common frames omitted
+
+2023-06-19T22:38:47.853-03:00  WARN 8444 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.listener.BlockingQueueConsumer   : Failed to declare queue: saleToClient-demand
+2023-06-19T22:38:47.853-03:00  WARN 8444 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.listener.BlockingQueueConsumer   : Queue declaration failed; retries left=2
+
+org.springframework.amqp.rabbit.listener.BlockingQueueConsumer$DeclarationException: Failed to declare queue(s):[saleToClient-demand]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:760) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.passiveDeclarations(BlockingQueueConsumer.java:637) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:624) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1385) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1230) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:129) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:125) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:147) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:1012) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:46) ~[amqp-client-5.17.0.jar:5.17.0]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1137) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at jdk.proxy2/jdk.proxy2.$Proxy193.queueDeclarePassive(Unknown Source) ~[na:na]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:738) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	... 5 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'saleToClient-demand' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:502) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:293) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:141) ~[amqp-client-5.17.0.jar:5.17.0]
+	... 14 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'saleToClient-demand' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:517) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:341) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:182) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:114) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:743) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:47) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:670) ~[amqp-client-5.17.0.jar:5.17.0]
+	... 1 common frames omitted
+
+2023-06-19T22:38:52.872-03:00  WARN 8444 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.listener.BlockingQueueConsumer   : Failed to declare queue: saleToClient-demand
+2023-06-19T22:38:52.873-03:00  WARN 8444 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.listener.BlockingQueueConsumer   : Queue declaration failed; retries left=1
+
+org.springframework.amqp.rabbit.listener.BlockingQueueConsumer$DeclarationException: Failed to declare queue(s):[saleToClient-demand]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:760) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.passiveDeclarations(BlockingQueueConsumer.java:637) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:624) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1385) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1230) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:129) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:125) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:147) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:1012) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:46) ~[amqp-client-5.17.0.jar:5.17.0]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1137) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at jdk.proxy2/jdk.proxy2.$Proxy193.queueDeclarePassive(Unknown Source) ~[na:na]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:738) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	... 5 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'saleToClient-demand' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:502) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:293) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:141) ~[amqp-client-5.17.0.jar:5.17.0]
+	... 14 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'saleToClient-demand' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:517) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:341) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:182) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:114) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:743) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:47) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:670) ~[amqp-client-5.17.0.jar:5.17.0]
+	... 1 common frames omitted
+
+2023-06-19T22:38:57.891-03:00  WARN 8444 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.listener.BlockingQueueConsumer   : Failed to declare queue: saleToClient-demand
+2023-06-19T22:38:57.892-03:00 ERROR 8444 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.l.SimpleMessageListenerContainer : Consumer threw missing queues exception, fatal=true
+
+org.springframework.amqp.rabbit.listener.QueuesNotAvailableException: Cannot prepare queue for listener. Either the queue doesn't exist or the broker will not allow us to use it.
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.handleDeclarationException(BlockingQueueConsumer.java:710) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.passiveDeclarations(BlockingQueueConsumer.java:644) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:624) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1385) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1230) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.springframework.amqp.rabbit.listener.BlockingQueueConsumer$DeclarationException: Failed to declare queue(s):[saleToClient-demand]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:760) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.passiveDeclarations(BlockingQueueConsumer.java:637) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	... 4 common frames omitted
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:129) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:125) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:147) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:1012) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:46) ~[amqp-client-5.17.0.jar:5.17.0]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1137) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at jdk.proxy2/jdk.proxy2.$Proxy193.queueDeclarePassive(Unknown Source) ~[na:na]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:738) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	... 5 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'saleToClient-demand' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:502) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:293) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:141) ~[amqp-client-5.17.0.jar:5.17.0]
+	... 14 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'saleToClient-demand' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:517) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:341) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:182) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:114) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:743) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:47) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:670) ~[amqp-client-5.17.0.jar:5.17.0]
+	... 1 common frames omitted
+
+2023-06-19T22:38:57.895-03:00  WARN 8444 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.amqp.rabbit.config.internalRabbitListenerEndpointRegistry'
+2023-06-19T22:38:57.902-03:00 ERROR 8444 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.l.SimpleMessageListenerContainer : Stopping container from aborted consumer
+2023-06-19T22:38:57.902-03:00  INFO 8444 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2023-06-19T22:38:57.902-03:00  INFO 8444 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-1] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2023-06-19T22:38:57.912-03:00  INFO 8444 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-19T22:38:57.922-03:00  INFO 8444 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-06-19T22:38:57.927-03:00  INFO 8444 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-06-19T22:38:57.929-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-06-19T22:39:00.944-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-06-19T22:39:00.991-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSCLIENT/msclient:3892880a290d002ec2eee2b23d5643d4 - deregister  status: 200
+2023-06-19T22:39:01.007-03:00  INFO 8444 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2023-06-19T22:39:01.101-03:00  INFO 8444 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-19T22:39:01.164-03:00  INFO 8444 --- [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2023-06-19T22:39:01.211-03:00 ERROR 8444 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.context.ApplicationContextException: Failed to start bean 'org.springframework.amqp.rabbit.config.internalRabbitListenerEndpointRegistry'
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:181) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.DefaultLifecycleProcessor$LifecycleGroup.start(DefaultLifecycleProcessor.java:356) ~[spring-context-6.0.9.jar:6.0.9]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.context.support.DefaultLifecycleProcessor.startBeans(DefaultLifecycleProcessor.java:155) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.DefaultLifecycleProcessor.onRefresh(DefaultLifecycleProcessor.java:123) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:958) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:611) ~[spring-context-6.0.9.jar:6.0.9]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:733) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:435) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:311) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1305) ~[spring-boot-3.1.0.jar:3.1.0]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1294) ~[spring-boot-3.1.0.jar:3.1.0]
+	at br.com.klok.desafio.msclient.ClientMicroserviceApplication.main(ClientMicroserviceApplication.java:16) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-3.1.0.jar:3.1.0]
+Caused by: org.springframework.amqp.AmqpIllegalStateException: Fatal exception on listener startup
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.waitForConsumersToStart(SimpleMessageListenerContainer.java:604) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer.doStart(SimpleMessageListenerContainer.java:564) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.AbstractMessageListenerContainer.start(AbstractMessageListenerContainer.java:1441) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistry.startIfNecessary(RabbitListenerEndpointRegistry.java:289) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.RabbitListenerEndpointRegistry.start(RabbitListenerEndpointRegistry.java:239) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.context.support.DefaultLifecycleProcessor.doStart(DefaultLifecycleProcessor.java:178) ~[spring-context-6.0.9.jar:6.0.9]
+	... 18 common frames omitted
+Caused by: org.springframework.amqp.rabbit.listener.QueuesNotAvailableException: Cannot prepare queue for listener. Either the queue doesn't exist or the broker will not allow us to use it.
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.handleDeclarationException(BlockingQueueConsumer.java:710) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.passiveDeclarations(BlockingQueueConsumer.java:644) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.start(BlockingQueueConsumer.java:624) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.initialize(SimpleMessageListenerContainer.java:1385) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer$AsyncMessageProcessingConsumer.run(SimpleMessageListenerContainer.java:1230) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: org.springframework.amqp.rabbit.listener.BlockingQueueConsumer$DeclarationException: Failed to declare queue(s):[saleToClient-demand]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:760) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.passiveDeclarations(BlockingQueueConsumer.java:637) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	... 4 common frames omitted
+Caused by: java.io.IOException: null
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:129) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.wrap(AMQChannel.java:125) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:147) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:1012) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.queueDeclarePassive(ChannelN.java:46) ~[amqp-client-5.17.0.jar:5.17.0]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.amqp.rabbit.connection.CachingConnectionFactory$CachedChannelInvocationHandler.invoke(CachingConnectionFactory.java:1137) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	at jdk.proxy2/jdk.proxy2.$Proxy193.queueDeclarePassive(Unknown Source) ~[na:na]
+	at org.springframework.amqp.rabbit.listener.BlockingQueueConsumer.attemptPassiveDeclarations(BlockingQueueConsumer.java:738) ~[spring-rabbit-3.0.4.jar:3.0.4]
+	... 5 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'saleToClient-demand' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:66) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:36) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:502) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:293) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:141) ~[amqp-client-5.17.0.jar:5.17.0]
+	... 14 common frames omitted
+Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=404, reply-text=NOT_FOUND - no queue 'saleToClient-demand' in vhost '/', class-id=50, method-id=10)
+	at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:517) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:341) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:182) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:114) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection.readFrame(AMQConnection.java:743) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection.access$300(AMQConnection.java:47) ~[amqp-client-5.17.0.jar:5.17.0]
+	at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:670) ~[amqp-client-5.17.0.jar:5.17.0]
+	... 1 common frames omitted
+
+2023-06-19T22:41:10.961-03:00  INFO 9940 --- [restartedMain] b.c.k.d.m.ClientMicroserviceApplication  : Starting ClientMicroserviceApplication using Java 17.0.7 with PID 9940 (C:\Users\Iried\Desktop\Desafio Klok\msclient\target\classes started by Iried in C:\Users\Iried\Desktop\Desafio Klok\msclient)
+2023-06-19T22:41:10.963-03:00  INFO 9940 --- [restartedMain] b.c.k.d.m.ClientMicroserviceApplication  : No active profile set, falling back to 1 default profile: "default"
+2023-06-19T22:41:11.015-03:00  INFO 9940 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-06-19T22:41:11.015-03:00  INFO 9940 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-06-19T22:41:12.060-03:00  INFO 9940 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-19T22:41:12.233-03:00  INFO 9940 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 166 ms. Found 1 JPA repository interfaces.
+2023-06-19T22:41:12.469-03:00  INFO 9940 --- [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=f4415605-d537-31db-8f9c-3be101160f1d
+2023-06-19T22:41:13.127-03:00  INFO 9940 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 0 (http)
+2023-06-19T22:41:13.137-03:00  INFO 9940 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-19T22:41:13.137-03:00  INFO 9940 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-19T22:41:13.209-03:00  INFO 9940 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-19T22:41:13.210-03:00  INFO 9940 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2194 ms
+2023-06-19T22:41:13.521-03:00  INFO 9940 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-19T22:41:13.604-03:00  INFO 9940 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.2.Final
+2023-06-19T22:41:13.606-03:00  INFO 9940 --- [restartedMain] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2023-06-19T22:41:13.778-03:00  INFO 9940 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-06-19T22:41:13.940-03:00  INFO 9940 --- [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-06-19T22:41:13.960-03:00  INFO 9940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-19T22:41:14.214-03:00  INFO 9940 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5508cb2c
+2023-06-19T22:41:14.215-03:00  INFO 9940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-19T22:41:14.292-03:00  INFO 9940 --- [restartedMain] org.hibernate.orm.dialect                : HHH035001: Using dialect: org.hibernate.dialect.PostgreSQLDialect, version: org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$DialectResolutionInfoImpl@15325f71
+2023-06-19T22:41:14.522-03:00  INFO 9940 --- [restartedMain] o.h.b.i.BytecodeProviderInitiator        : HHH000021: Bytecode provider name : bytebuddy
+2023-06-19T22:41:15.170-03:00  INFO 9940 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-19T22:41:15.292-03:00  INFO 9940 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-19T22:41:15.914-03:00  WARN 9940 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-19T22:41:17.113-03:00  INFO 9940 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-19T22:41:17.237-03:00  INFO 9940 --- [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2023-06-19T22:41:17.274-03:00  WARN 9940 --- [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2023-06-19T22:41:17.278-03:00  INFO 9940 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 17 endpoint(s) beneath base path '/actuator'
+2023-06-19T22:41:17.368-03:00  WARN 9940 --- [restartedMain] ocalVariableTableParameterNameDiscoverer : Using deprecated '-debug' fallback for parameter name resolution. Compile the affected code with '-parameters' instead or avoid its introspection: org.springframework.amqp.rabbit.core.RabbitAdmin
+2023-06-19T22:41:17.446-03:00  INFO 9940 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 49273 (http) with context path ''
+2023-06-19T22:41:17.448-03:00  INFO 9940 --- [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 49273
+2023-06-19T22:41:17.452-03:00  INFO 9940 --- [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2023-06-19T22:41:17.485-03:00  INFO 9940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2023-06-19T22:41:17.490-03:00  INFO 9940 --- [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-06-19T22:41:17.515-03:00  INFO 9940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2023-06-19T22:41:17.515-03:00  INFO 9940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2023-06-19T22:41:17.515-03:00  INFO 9940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2023-06-19T22:41:17.515-03:00  INFO 9940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2023-06-19T22:41:17.516-03:00  INFO 9940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2023-06-19T22:41:17.516-03:00  INFO 9940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2023-06-19T22:41:17.516-03:00  INFO 9940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2023-06-19T22:41:17.829-03:00  INFO 9940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2023-06-19T22:41:17.833-03:00  INFO 9940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2023-06-19T22:41:17.836-03:00  INFO 9940 --- [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-06-19T22:41:17.841-03:00  INFO 9940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1687225277839 with initial instances count: 1
+2023-06-19T22:41:17.843-03:00  INFO 9940 --- [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application MSCLIENT with eureka with status UP
+2023-06-19T22:41:17.843-03:00  INFO 9940 --- [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1687225277843, current=UP, previous=STARTING]
+2023-06-19T22:41:17.844-03:00  INFO 9940 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSCLIENT/msclient:94656e73c8c99fe7277b51c806dd6f43: registering service...
+2023-06-19T22:41:17.887-03:00  INFO 9940 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSCLIENT/msclient:94656e73c8c99fe7277b51c806dd6f43 - registration status: 204
+2023-06-19T22:41:17.959-03:00  INFO 9940 --- [restartedMain] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2023-06-19T22:41:18.024-03:00  INFO 9940 --- [restartedMain] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#261b3a22:0/SimpleConnection@50d71426 [delegate=amqp://guest@127.0.0.1:5672/, localPort=49276]
+2023-06-19T22:41:18.128-03:00  INFO 9940 --- [restartedMain] b.c.k.d.m.ClientMicroserviceApplication  : Started ClientMicroserviceApplication in 7.801 seconds (process running for 8.797)
+2023-06-19T22:41:18.490-03:00  INFO 9940 --- [RMI TCP Connection(3)-10.0.0.102] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-19T22:41:18.490-03:00  INFO 9940 --- [RMI TCP Connection(3)-10.0.0.102] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-06-19T22:41:18.492-03:00  INFO 9940 --- [RMI TCP Connection(3)-10.0.0.102] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-06-19T22:46:17.558-03:00  INFO 9940 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-06-19T22:51:17.615-03:00  INFO 9940 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-06-19T22:56:17.656-03:00  INFO 9940 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2023-06-19T22:57:16.648-03:00  INFO 9940 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application MSCLIENT with eureka with status DOWN
+2023-06-19T22:57:16.650-03:00  INFO 9940 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1687226236650, current=DOWN, previous=UP]
+2023-06-19T22:57:16.653-03:00  INFO 9940 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSCLIENT/msclient:94656e73c8c99fe7277b51c806dd6f43: registering service...
+2023-06-19T22:57:16.744-03:00  INFO 9940 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSCLIENT/msclient:94656e73c8c99fe7277b51c806dd6f43 - registration status: 204
+2023-06-19T22:57:16.996-03:00  INFO 9940 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2023-06-19T22:57:17.003-03:00  INFO 9940 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] o.s.a.r.l.SimpleMessageListenerContainer : Waiting for workers to finish.
+2023-06-19T22:57:17.578-03:00  INFO 9940 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#0-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2023-06-19T22:57:17.592-03:00  INFO 9940 --- [org.springframework.amqp.rabbit.RabbitListenerEndpointContainer#1-2] o.s.a.r.l.SimpleMessageListenerContainer : Successfully waited for workers to finish.
+2023-06-19T22:57:17.851-03:00  INFO 9940 --- [SpringApplicationShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Shutdown ignored - container is already stopped
+2023-06-19T22:57:17.856-03:00  INFO 9940 --- [SpringApplicationShutdownHook] o.s.a.r.l.SimpleMessageListenerContainer : Shutdown ignored - container is already stopped
+2023-06-19T22:57:17.887-03:00  INFO 9940 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-19T22:57:18.003-03:00  INFO 9940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-06-19T22:57:18.043-03:00  INFO 9940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-06-19T22:57:18.052-03:00  INFO 9940 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2023-06-19T22:57:21.081-03:00  WARN 9940 --- [DiscoveryClient-1] c.netflix.discovery.TimedSupervisorTask  : task supervisor shutting down, can't accept the task
+2023-06-19T22:57:21.131-03:00  INFO 9940 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2023-06-19T22:57:21.159-03:00  INFO 9940 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_MSCLIENT/msclient:94656e73c8c99fe7277b51c806dd6f43 - deregister  status: 200
+2023-06-19T22:57:21.170-03:00  INFO 9940 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient

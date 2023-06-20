@@ -7,15 +7,10 @@ spring:
         locator:
           enabled: true
           lower-case-service-id: true
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          issuer-uri: http://${KEY_SERVER}
 
 
 server:
-  port: 8081
+  port: 8080
 
 
 eureka:

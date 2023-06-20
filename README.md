@@ -3,11 +3,11 @@
  <h2>Estágio em Desenvolvimento de Software<h2>
 </div>
 
-### :warning: 
-:exclamation:Branch 'main' é a mais completa, mas está dando erro de conectividade entre as imagens e o script Postegres está com erro de escrita.
-:exclamation:Branche 'stable' está com o servidor eureka conversando perfeitamente com os microserviços e com o rabbitMQ, porém a apigateway não consegue se cadastrar no eureka (Por tanto sem autenticação).
-:exclamation:Branche 'dev' igual a main, foi utilizado para produção.
-:exclamation:Branche 'working' está pegando com a apigateway e com a autenticação keycloak, poreé não utiliza a imagen das aplicações spring, precisando ser rodado uma a um localmente.
+# :warning: 
+ - :exclamation:Branch 'main' é a mais completa, mas está dando erro de conectividade entre as imagens e o script Postegres está com erro de escrita.
+ - :exclamation:Branche 'stable' está com o servidor eureka conversando perfeitamente com os microserviços e com o rabbitMQ, porém a apigateway não consegue se cadastrar no eureka (Por tanto sem autenticação).
+ - :exclamation:Branche 'dev' igual a main, foi utilizado para produção.
+ - :exclamation:Branche 'working' está pegando com a apigateway e com a autenticação keycloak, poreé não utiliza a imagen das aplicações spring, precisando ser rodado uma a um localmente.
 
 *Ao executar a branch 'stable' será nescessario subir o docker-compose e importar as informações referentes ao RabbitMQ conforme o tutorial explica no final do README, após isso subir as imagens dos microserviçõs novamente (eles fecham só por não acharem as rotas)*
 
